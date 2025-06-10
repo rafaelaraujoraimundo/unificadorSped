@@ -1,0 +1,14 @@
+pip install pyqt5-tools
+pyuic5 -x TelaPrincipal.ui -o tela_principal.py
+
+
+pip install cx_Freeze
+python setup.py build
+
+
+pip install pyqt5-tools
+pyuic5 -x TelaPrincipal.ui -o tela_principal.pyhome = C:\Users\rafael.araujo_combio\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0
+include-system-site-packages = false
+version = 3.11.9
+executable = C:\Program Files\Python312\python.exe
+command = C:\Program Files\Python312\python.exe -m venv C:\Workspace\CombioDjango\venv
