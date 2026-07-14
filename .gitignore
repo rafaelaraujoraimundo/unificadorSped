@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#
+.claude/
+claude/*
+Unificador SPED - Combio
+
 # C extensions
 *.so
 

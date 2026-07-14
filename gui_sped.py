@@ -52,7 +52,7 @@ class SPEDApp(QMainWindow):
         layout.addWidget(self.button_unificar)
 
         # Adicionando a barra de status
-        self.statusBar().showMessage('Combio S/A - Versão 1.12 - Rafael Araujo')
+        self.statusBar().showMessage('Combio S/A - Versão 1.15 - Rafael Araujo')
 
         # Adicionando um menu "Sobre"
         menubar = self.menuBar()
@@ -108,8 +108,8 @@ class SPEDApp(QMainWindow):
             ("<b>Programa:</b> Sistema de Unificação SPED<br>"
              "<b>Desenvolvido pelo Setor de Tecnologia da Informação - 2024</b><br><br>"
              "Rafael Araujo<br>"
-             "rafael.araujo@combioenergia.com.br<br>"
-             "<b>Versão 1.12</b>"))
+             "rafael.araujo@combio.com.br<br>"
+             "<b>Versão 1.15</b>"))
 
 def main():
     app = QApplication(sys.argv)

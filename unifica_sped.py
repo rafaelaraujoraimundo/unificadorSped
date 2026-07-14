@@ -471,24 +471,34 @@ def processar_bloco_c(arquivos):
 def processar_bloco_d(arquivos):
     """
     Processa o bloco D conforme a regra especificada.
-    Move registros D500 e D590 para o final do bloco D (antes de D990).
+    Respeita a hierarquia do Bloco D:
+      D1** (D100, D190, D195, etc.) → D5** (D500, D590) → D7** (D700, D730) → D990
     """
-    blocos_d = []
-    blocos_d500_d590 = []
+    blocos_d1xx = []
+    blocos_d5xx = []
+    blocos_d7xx = []
     bloco_d_presente = False
 
     for arquivo in arquivos:
         linhas = ler_arquivo_sped(arquivo)
         for linha in linhas:
             if linha.startswith('|D') and not linha.startswith('|D001|') and not linha.startswith('|D990|'):
-                if linha.startswith('|D500|') or linha.startswith('|D590|'):
-                    blocos_d500_d590.append(linha)
+                reg = linha.split('|')[1]
+                if reg.startswith('D1'):
+                    blocos_d1xx.append(linha)
+                    bloco_d_presente = True
+                elif reg.startswith('D5'):
+                    blocos_d5xx.append(linha)
+                    bloco_d_presente = True
+                elif reg.startswith('D7'):
+                    blocos_d7xx.append(linha)
+                    bloco_d_presente = True
                 else:
-                    blocos_d.append(linha)
+                    blocos_d1xx.append(linha)
                     bloco_d_presente = True
 
-    if bloco_d_presente or blocos_d500_d590:
-        bloco_final = ['|D001|0|\n'] + blocos_d + blocos_d500_d590
+    if bloco_d_presente:
+        bloco_final = ['|D001|0|\n'] + blocos_d1xx + blocos_d5xx + blocos_d7xx
         qtd_lin_d = len(bloco_final) + 1  # +1 para D990
         bloco_final.append(f"|D990|{qtd_lin_d}|\n")
     else:

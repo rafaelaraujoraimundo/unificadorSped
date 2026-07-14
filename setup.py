@@ -14,7 +14,8 @@ if not os.path.isdir(qt5_bin_path):
     raise RuntimeError("Qt5 bin path not found: " + qt5_bin_path)
 
 # Base correta para GUI no Windows
-base = "Win32GUI" if sys.platform == "win32" else None
+# cx_Freeze >= 7.x usa "gui" em vez de "Win32GUI"
+base = "gui" if sys.platform == "win32" else None
 
 # Configurações do executável
 executables = [
@@ -38,7 +39,7 @@ build_options = {
 # Configurações do setup
 setup(
     name='SPED Application',
-    version='1.12',
+    version='1.15',
     description='SPED Application by Rafael Araujo',
     options={'build_exe': build_options},
     executables=executables

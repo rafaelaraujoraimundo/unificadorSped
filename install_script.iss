@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Unificação SPED - Combio"
-#define MyAppVersion "1.12"
+#define MyAppVersion "1.15"
 #define MyAppPublisher "Rafael Araujo"
 #define MyAppURL "http://www.combio.com.br/"
 #define MyAppExeName "gui_sped.exe"
@@ -31,13 +31,13 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 ; Inclui os arquivos do diret�rio de build
-Source: "build\exe.win-amd64-3.12\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\exe.win-amd64-3.12\*.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\exe.win-amd64-3.14\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\exe.win-amd64-3.14\*.dll"; DestDir: "{app}"; Flags: ignoreversion
 ;Source: "build\exe.win-amd64-3.11\*.pyd"; DestDir: "{app}"; Flags: ignoreversion
 ;Source: "build\exe.win-amd64-3.11\*.py"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\exe.win-amd64-3.12\Qt\bin\*"; DestDir: "{app}\Qt\bin"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "build\exe.win-amd64-3.12\Qt\plugins\*"; DestDir: "{app}\Qt\plugins"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "build\exe.win-amd64-3.12\lib\*"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "build\exe.win-amd64-3.14\Qt\bin\*"; DestDir: "{app}\Qt\bin"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "build\exe.win-amd64-3.14\Qt\plugins\*"; DestDir: "{app}\Qt\plugins"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "build\exe.win-amd64-3.14\lib\*"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "icon.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
